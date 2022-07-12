@@ -37,8 +37,9 @@ class Cutlery:
     #end giv()
     
     def change(self, knives, forks):
-        self.knives += knives
-        self.forks += forks
+        with self.lock:
+            self.knives += knives
+            self.forks += forks
     # end change()
 # end class Cutlery
 
